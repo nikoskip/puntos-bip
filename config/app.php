@@ -204,4 +204,9 @@ return [
 
     ],
 
+    /**
+     * URL de la API de datos.gob.cl
+     */
+    'api_endpoint' => 'http://datos.gob.cl/api'
+
 ];
