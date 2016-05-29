@@ -14,12 +14,15 @@ class CreatePuntoBipTable extends Migration
     {
         Schema::create('punto_bip', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('codigo')->unique();
-            $table->string('nombre', 50);
+            $table->string('codigo', 10);
+            $table->string('nombre', 50)->nullable();
+            $table->string('entidad', 50);
             $table->string('direccion', 100);
+            $table->string('comuna', 30);
             $table->decimal('lat', 10, 6);
             $table->decimal('lon', 10, 6);
-            $table->smallInteger('servicio');
+            $table->smallInteger('servicios');
+            $table->string('fuente', 10);
             $table->timestamps();
         });
     }

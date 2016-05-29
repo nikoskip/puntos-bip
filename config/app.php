@@ -155,6 +155,7 @@ return [
         PuntosBip\Providers\AuthServiceProvider::class,
         PuntosBip\Providers\EventServiceProvider::class,
         PuntosBip\Providers\RouteServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
