@@ -207,6 +207,62 @@ return [
     /**
      * URL de la API de datos.gob.cl
      */
-    'api_endpoint' => 'http://datos.gob.cl/api'
+    'api_endpoint' => 'http://datos.gob.cl/api',
+
+    /**
+     * Timeout por cada llamada a la API en segundos
+     */
+    'api_timeout' => 5,
+
+    /**
+     * Listado de recursos API desde donde se obtienen los Puntos Bip!
+     */
+    'api_resources' => array(
+        'retail' => array(
+            'name' => 'Retail',
+            'services' => array(\PuntosBip\Models\PuntoBip::SERVICE_CARGA),
+            'resource_id' => '2d177f41-08f9-471a-af5c-bc949267f053'
+        ),
+        'puntos_bip' => array(
+            'name' => 'Puntos Bip!',
+            'services' => array(\PuntosBip\Models\PuntoBip::SERVICE_CARGA, \PuntosBip\Models\PuntoBip::SERVICE_CONSULTA_SALDO, PuntosBip\Models\PuntoBip::SERVICE_CARGA_REMOTA),
+            'resource_id' => 'cbd329c6-9fe6-4dc1-91e3-a99689fd0254'
+        ),
+        'estaciones_metro' => array(
+            'name' => 'Estaciones de Metro',
+            'services' => array(\PuntosBip\Models\PuntoBip::SERVICE_CARGA, \PuntosBip\Models\PuntoBip::SERVICE_VENTA_TARJETA),
+            'resource_id' => 'ba0cd493-8bec-4806-91b5-4c2b5261f65e'
+        ),
+/**
+ * Al momento de intentar importa los datos de estas fuentes, me di cuenta que no tienen API creada, ya no se utilizan.
+ * Si en algún momento se genera una API para acceder a ellos, basta descomentar y actualizar el 'resource_id'.
+ */
+
+//        'centros_bip_alto_estandar' => array(
+//            'name' => 'Centros Bip! - Alto Estándar',
+//            'services' => array(\PuntosBip\Models\PuntoBip::SERVICE_CARGA, \PuntosBip\Models\PuntoBip::SERVICE_VENTA_TARJETA, \PuntosBip\Models\PuntoBip::SERVICE_CONSULTA_SALDO, \PuntosBip\Models\PuntoBip::SERVICE_CARGA_REMOTA, \PuntosBip\Models\PuntoBip::SERVICE_REMPLAZO_TARJETA, \PuntosBip\Models\PuntoBip::SERVICE_RECUPERACION_TARJETA),
+//            'resource_id' => 'fef2a0f6-84f8-4a1a-9a64-e2424efdd376'
+//        ),
+//        'centros_bip_estandar_normal' => array(
+//            'name' => 'Centros Bip! - Estándar normal',
+//            'services' => array(\PuntosBip\Models\PuntoBip::SERVICE_VENTA_TARJETA, \PuntosBip\Models\PuntoBip::SERVICE_CARGA, \PuntosBip\Models\PuntoBip::SERVICE_CONSULTA_SALDO, \PuntosBip\Models\PuntoBip::SERVICE_CARGA_REMOTA),
+//            'resource_id' => '60c16b4e-946f-4ff1-aae2-dc21ce2e941b'
+//        ),
+    ),
+
+    /**
+     * Listado de recursos en archivo desde donde se obtienen los Puntos Bip!
+     */
+    'file_resources' => array(
+        'centros_bip_alto_estandar' => array(
+            'name' => 'Centros Bip! - Alto Estándar',
+            'services' => array(\PuntosBip\Models\PuntoBip::SERVICE_CARGA, \PuntosBip\Models\PuntoBip::SERVICE_VENTA_TARJETA, \PuntosBip\Models\PuntoBip::SERVICE_CONSULTA_SALDO, \PuntosBip\Models\PuntoBip::SERVICE_CARGA_REMOTA, \PuntosBip\Models\PuntoBip::SERVICE_REMPLAZO_TARJETA, \PuntosBip\Models\PuntoBip::SERVICE_RECUPERACION_TARJETA),
+            'resource_file' => 'http://datos.gob.cl/dataset/5993b4cb-869c-4733-a124-7fcdd57bbb05/resource/fef2a0f6-84f8-4a1a-9a64-e2424efdd376/download/pcmav-alto-estandar25052016-oficio-47702013.xls',
+        'centros_bip_estandar_normal' => array(
+            'name' => 'Centros Bip! - Estándar normal',
+            'services' => array(\PuntosBip\Models\PuntoBip::SERVICE_VENTA_TARJETA, \PuntosBip\Models\PuntoBip::SERVICE_CARGA, \PuntosBip\Models\PuntoBip::SERVICE_CONSULTA_SALDO, \PuntosBip\Models\PuntoBip::SERVICE_CARGA_REMOTA),
+            'resource_file' => 'http://datos.gob.cl/dataset/29a758f3-4fe8-4582-afc7-8237b83aaddc/resource/60c16b4e-946f-4ff1-aae2-dc21ce2e941b/download/pcmav-estandar-normal25052016-oficio-47702013.xls'
+        ),
+    )
 
 ];
