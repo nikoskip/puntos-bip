@@ -27,17 +27,27 @@
                 <div class="inner">
                     <h3 class="masthead-brand">Puntos Bip!</h3>
                     <nav>
-                        <ul class="nav masthead-nav">
 
-                        </ul>
                     </nav>
                 </div>
             </div>
 
             <div class="inner cover">
-                <h1 class="cover-heading">Ingresa una dirección</h1>
-                <input type="text" id="direccion" class="input-direccion">
-                <button type="button" id="buscar" class="btn-default">Buscar</button>
+                <div id="address-form">
+                    <h1 class="cover-heading">Ingresa una dirección</h1>
+                    <div class="form-container">
+                        <input type="text" id="address" class="input-direccion" placeholder="Calle 123, Comuna" value="Latadia 4392, Las Condes">
+                        <button type="button" id="search" class="btn-default">Buscar</button>
+                    </div>
+                    <p class="info">Se buscarán Puntos Bip! en un radio de {{ number_format(config('app.radio_busqueda'), 0, ',', '.') }} metros</p>
+                </div>
+                <div id="messages">
+
+                </div>
+                <div id="results" class="results-container">
+                    <p id="results-info" class="results-info"></p>
+                    <ul id="result-list" class="result-list"></ul>
+                </div>
             </div>
 
             <div class="mastfoot">
@@ -52,10 +62,26 @@
 
 </div>
 
+<script type="text/template" id="template-record">
+    <li class="result">
+        <div class="result-distance">A <%=distance%> metros</div>
+        <h3><%=nombre%></h3>
+        <p class="result-address"><%=direccion%>, <%=comuna%></p>
+        <p class="result-schedule"><%=horario%></p>
+        <div class="result-more-info">
+            <h4>Servicios</h4>
+            <ul>
+                <% _.each(servicios, function (servicio) { print('<li>' + servicio + '</li>'); }) %>
+            </ul>
+        </div>
+    </li>
+</script>
+
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="{{ elixir('js/app.js')  }}"></script>
 </body>
 </html>

@@ -18,7 +18,7 @@ Route::get('/api', function () {
     abort(404);
 });
 
-Route::group(['namespace' => 'Api'], function() {
-    Route::get('/api/getByAddress', 'PuntosBipApiController@getByAddress');
-    Route::get('/api/getByLocation', 'PuntosBipApiController@getByLocation');
+Route::group(['namespace' => 'Api', 'prefix' => '/api'], function() {
+    Route::get('/getByAddress', 'PuntosBipApiController@getByAddress');
+    Route::get('/getByLocation', 'PuntosBipApiController@getByLocation');
 });

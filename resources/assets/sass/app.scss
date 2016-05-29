@@ -134,6 +134,162 @@ h1 {
   font-size: 25px;
 }
 
+.info {
+  margin: 10px 0;
+  color: #eee;
+  font-size: 13px;
+  color: #BDBDBD;
+}
+
+input {
+  color: black;
+}
+
+.results-container {
+  display: none;
+  border-top: 1px solid white;
+  padding-top: 10px;
+}
+
+.result-list {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  .result {
+    padding: 5px 0;
+    border-top: 1px solid #4A4A4A;
+    &:first-child {
+      padding: 0;
+      border-top: none;
+    }
+    h3 {
+      margin: 0;
+      color: #2693ff;
+    }
+  }
+  .result-distance {
+    color: #737373;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .result-address, .result-schedule {
+    color: #BDBDBD;
+    margin: 0;
+    font-size: 13px;
+  }
+  .result-schedule {
+    color: white;
+  }
+  .result-more-info {
+    h4 {
+      color: #BDBDBD;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+    ul {
+      list-style-type: disc;
+      li {
+        color: #BDBDBD;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.btn-default {
+  background: #2693ff;
+  color: white;
+  border: none;
+}
+
+.form-container {
+  width: 100%;
+  input {
+    width: 78%;
+    height: 35px;
+  }
+  button {
+    position: relative;
+    width: 20%;
+    height: 35px;
+    font-weight: bold;
+    &:hover, &:focus, &:active {
+      background: #006dd9 !important;
+      color: white !important;
+      border: none;
+    }
+  }
+}
+
+
+// Thanks: https://martinwolf.org/blog/2015/01/pure-css-savingloading-dots-animation
+@keyframes blink {
+  /**
+   * At the start of the animation the dot
+   * has an opacity of .2
+   */
+  0% {
+    opacity: .2;
+  }
+  /**
+   * At 20% the dot is fully visible and
+   * then fades out slowly
+   */
+  20% {
+    opacity: 1;
+  }
+  /**
+   * Until it reaches an opacity of .2 and
+   * the animation can start again
+   */
+  100% {
+    opacity: .2;
+  }
+}
+
+
+.saving span {
+  /**
+   * Use the blink animation, which is defined above
+   */
+  animation-name: blink;
+  /**
+   * The animation should take 1.4 seconds
+   */
+  animation-duration: 1.4s;
+  /**
+   * It will repeat itself forever
+   */
+  animation-iteration-count: infinite;
+  /**
+   * This makes sure that the starting style (opacity: .2)
+   * of the animation is applied before the animation starts.
+   * Otherwise we would see a short flash or would have
+   * to set the default styling of the dots to the same
+   * as the animation. Same applies for the ending styles.
+   */
+  animation-fill-mode: both;
+}
+
+.saving span:nth-child(2) {
+  /**
+   * Starts the animation of the third dot
+   * with a delay of .2s, otherwise all dots
+   * would animate at the same time
+   */
+  animation-delay: .2s;
+}
+
+.saving span:nth-child(3) {
+  /**
+   * Starts the animation of the third dot
+   * with a delay of .4s, otherwise all dots
+   * would animate at the same time
+   */
+  animation-delay: .4s;
+}
 
 /*
  * Affix and center

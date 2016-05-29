@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use PuntosBip\Http\Requests;
 use PuntosBip\Http\Controllers\Controller;
-use PuntosBip\Models\PuntoBip;
+use PuntosBip\Services\Api as PuntosBipApi;
 use PuntosBip\Services\GoogleMapsConsumer;
 use Response;
 
@@ -23,11 +23,18 @@ class PuntosBipApiController extends Controller {
      */
     protected $gMapsConsumer;
 
+    /**
+     * Api Service
+     * @var PuntosBipApi
+     */
+    protected $api;
+
     protected $dataResponse = array('status' => 'ok', 'results' => array());
 
-    public function __construct(Request $request, GoogleMapsConsumer $gMapsConsumer) {
+    public function __construct(Request $request, GoogleMapsConsumer $gMapsConsumer, PuntosBipApi $api) {
         $this->request = $request;
         $this->gMapsConsumer = $gMapsConsumer;
+        $this->api = $api;
     }
 
     /**
@@ -66,7 +73,7 @@ class PuntosBipApiController extends Controller {
         $lon = $this->validateRequiredParamater('lon', $lon);
 
         // Obtenemos los Puntos Bip!
-        $this->dataResponse['results'] = PuntoBip::fintPuntosBipByLocation($lat, $lon, config('app.radio_busqueda'));
+        $this->dataResponse['results'] = $this->api->getPuntosBipByLocation($lat, $lon, config('app.radio_busqueda'));
 
         return Response::json($this->dataResponse, 200);
     }

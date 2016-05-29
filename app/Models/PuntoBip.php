@@ -23,6 +23,15 @@ class PuntoBip extends Model
     const SERVICE_REMPLAZO_TARJETA = 16;
     const SERVICE_RECUPERACION_TARJETA = 32;
 
+    public static $servicesBitmask = array(
+        self::SERVICE_CARGA => 'Carga remota',
+        self::SERVICE_VENTA_TARJETA => 'Venta de tarjeta',
+        self::SERVICE_CONSULTA_SALDO => 'Consulta de saldo',
+        self::SERVICE_CARGA_REMOTA => 'Activación carga remota',
+        self::SERVICE_REMPLAZO_TARJETA => 'Reemplazo de tarjetas',
+        self::SERVICE_RECUPERACION_TARJETA => 'Recuperación de saldo de tarjetas dañadas'
+    );
+
     protected $table = 'punto_bip';
 
     /**
@@ -33,7 +42,7 @@ class PuntoBip extends Model
      * @param $radius
      * @return mixed
      */
-    public static function fintPuntosBipByLocation($lat, $lon, $radius) {
+    public static function getPuntosBipByLocation($lat, $lon, $radius) {
         return DB::table('punto_bip')
             ->select(DB::raw("nombre, direccion, comuna, horario, servicios, ROUND( ( 6371000 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lon ) - radians($lon) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) ) AS distance"))
             ->having('distance', '<', $radius)
