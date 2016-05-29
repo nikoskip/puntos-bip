@@ -258,11 +258,12 @@ return [
             'name' => 'Centros Bip! - Alto Estándar',
             'services' => array(\PuntosBip\Models\PuntoBip::SERVICE_CARGA, \PuntosBip\Models\PuntoBip::SERVICE_VENTA_TARJETA, \PuntosBip\Models\PuntoBip::SERVICE_CONSULTA_SALDO, \PuntosBip\Models\PuntoBip::SERVICE_CARGA_REMOTA, \PuntosBip\Models\PuntoBip::SERVICE_REMPLAZO_TARJETA, \PuntosBip\Models\PuntoBip::SERVICE_RECUPERACION_TARJETA),
             'resource_file' => 'http://datos.gob.cl/dataset/5993b4cb-869c-4733-a124-7fcdd57bbb05/resource/fef2a0f6-84f8-4a1a-9a64-e2424efdd376/download/pcmav-alto-estandar25052016-oficio-47702013.xls',
+        ),
         'centros_bip_estandar_normal' => array(
             'name' => 'Centros Bip! - Estándar normal',
             'services' => array(\PuntosBip\Models\PuntoBip::SERVICE_VENTA_TARJETA, \PuntosBip\Models\PuntoBip::SERVICE_CARGA, \PuntosBip\Models\PuntoBip::SERVICE_CONSULTA_SALDO, \PuntosBip\Models\PuntoBip::SERVICE_CARGA_REMOTA),
             'resource_file' => 'http://datos.gob.cl/dataset/29a758f3-4fe8-4582-afc7-8237b83aaddc/resource/60c16b4e-946f-4ff1-aae2-dc21ce2e941b/download/pcmav-estandar-normal25052016-oficio-47702013.xls'
-        ),
+        )
     )
 
 ];
