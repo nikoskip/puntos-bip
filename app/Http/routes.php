@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'PuntosBipController@home');
+
+
+Route::get('/api', function () {
+    abort(404);
+});
+
+Route::group(['namespace' => 'Api'], function() {
+    Route::get('/api/getByAddress', 'PuntosBipApiController@getByAddress');
+    Route::get('/api/getByLocation', 'PuntosBipApiController@getByLocation');
 });
