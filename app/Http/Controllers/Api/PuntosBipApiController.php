@@ -41,6 +41,14 @@ class PuntosBipApiController extends Controller {
         // Consultamos la dirección a la API de Google Maps
         $data = $this->gMapsConsumer->getAddress($address);
 
+        // Si retorna false, se puede deber a muchos motivos, pero vamos a encapsular por el momento el error
+        // como que la dirección no fue encontrada
+        if ($data === false) {
+            $this->dataResponse['status'] = 'invalid';
+            $this->dataResponse['error_message'] = 'La dirección no fue encontrada';
+            return Response::json($this->dataResponse, 400);
+        }
+
         // Obtenemos los Puntos Bip!
         return $this->getByLocation($data['lat'], $data['lon']);
     }
@@ -60,7 +68,7 @@ class PuntosBipApiController extends Controller {
         // Obtenemos los Puntos Bip!
         $this->dataResponse['results'] = PuntoBip::fintPuntosBipByLocation($lat, $lon, config('app.radio_busqueda'));
 
-        return Response::json($this->dataResponse, 400);
+        return Response::json($this->dataResponse, 200);
     }
 
     /**

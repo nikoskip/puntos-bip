@@ -7,6 +7,9 @@ use DB;
 
 class PuntoBip extends Model
 {
+    /**
+     * Cada Punto Bip! pudo haber sido cargado desde una API o desde un archivo
+     */
     const FUENTE_API = 'api';
     const FUENTE_FILE = 'file';
 
@@ -32,7 +35,7 @@ class PuntoBip extends Model
      */
     public static function fintPuntosBipByLocation($lat, $lon, $radius) {
         return DB::table('punto_bip')
-            ->select(DB::raw("nombre, direccion, comuna, servicios, ( 6371000 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lon ) - radians($lon) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance"))
+            ->select(DB::raw("nombre, direccion, comuna, horario, servicios, ROUND( ( 6371000 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lon ) - radians($lon) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) ) AS distance"))
             ->having('distance', '<', $radius)
             ->orderBy('distance', 'asc')
             ->get();

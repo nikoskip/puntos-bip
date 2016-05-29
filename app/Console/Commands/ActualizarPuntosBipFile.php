@@ -76,6 +76,7 @@ class ActualizarPuntosBipFile extends Command
                         $PuntoBip->entidad = $punto['ENTIDAD'];
                         $PuntoBip->direccion = $punto['DIRECCION'];
                         $PuntoBip->comuna = $punto['COMUNA'];
+                        $PuntoBip->horario = isset($punto['HORARIO']) ? $punto['HORARIO'] : null;
                         $PuntoBip->lat = $punto['LATITUD'];
                         $PuntoBip->lon = $punto['LONGITUD'];
                         $PuntoBip->servicios = array_sum($resource['services']);

@@ -18,6 +18,7 @@ class CreatePuntoBipTable extends Migration
             $table->string('nombre', 50)->nullable();
             $table->string('entidad', 50);
             $table->string('direccion', 100);
+            $table->string('horario', 100)->nullable();
             $table->string('comuna', 30);
             $table->decimal('lat', 10, 6);
             $table->decimal('lon', 10, 6);
