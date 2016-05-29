@@ -5867,10 +5867,10 @@ input {
   text-align: left;
   padding: 0; }
   .result-list .result {
-    padding: 5px 0;
+    padding: 20px 0;
     border-top: 1px solid #4A4A4A; }
     .result-list .result:first-child {
-      padding: 0;
+      padding: 0 0 20px;
       border-top: none; }
     .result-list .result h3 {
       margin: 0;
@@ -5981,10 +5981,8 @@ input {
 @media (min-width: 768px) {
   /* Pull out the header and footer */
   .masthead {
-    position: fixed;
     top: 0; }
   .mastfoot {
-    position: fixed;
     bottom: 0; }
   /* Start the vertical centering */
   .site-wrapper-inner {

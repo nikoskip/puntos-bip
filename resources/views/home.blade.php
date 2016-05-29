@@ -24,12 +24,7 @@
         <div class="cover-container">
 
             <div class="masthead clearfix">
-                <div class="inner">
-                    <h3 class="masthead-brand">Puntos Bip!</h3>
-                    <nav>
-
-                    </nav>
-                </div>
+                <img src="http://www.transantiago.cl/img/logo_web.png" alt=""/>
             </div>
 
             <div class="inner cover">
@@ -52,7 +47,7 @@
 
             <div class="mastfoot">
                 <div class="inner">
-                    <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                    <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a> - Adapted by <a href="https://twitter.com/nikoskip">@nikoskip</a></p>
                 </div>
             </div>
 

@@ -156,10 +156,10 @@ input {
   text-align: left;
   padding: 0;
   .result {
-    padding: 5px 0;
+    padding: 20px 0;
     border-top: 1px solid #4A4A4A;
     &:first-child {
-      padding: 0;
+      padding: 0 0 20px;
       border-top: none;
     }
     h3 {
@@ -298,11 +298,9 @@ input {
 @media (min-width: 768px) {
   /* Pull out the header and footer */
   .masthead {
-    position: fixed;
     top: 0;
   }
   .mastfoot {
-    position: fixed;
     bottom: 0;
   }
   /* Start the vertical centering */
