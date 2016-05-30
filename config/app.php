@@ -208,7 +208,7 @@ return [
     /**
      * Radio de búsqueda en metros para Puntos Bip!
      */
-    'radio_busqueda' => 1000,
+    'radio_busqueda' => 500,
 
     /**
      * URL de la API de datos.gob.cl

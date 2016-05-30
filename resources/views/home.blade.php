@@ -31,7 +31,7 @@
                 <div id="address-form">
                     <h1 class="cover-heading">Ingresa una dirección</h1>
                     <div class="form-container">
-                        <input type="text" id="address" class="input-direccion" placeholder="Calle 123, Comuna" value="Latadia 4392, Las Condes">
+                        <input type="text" id="address" class="input-direccion" placeholder="Calle 123, Comuna">
                         <button type="button" id="search" class="btn-default">Buscar</button>
                     </div>
                     <p class="info">Se buscarán Puntos Bip! en un radio de {{ number_format(config('app.radio_busqueda'), 0, ',', '.') }} metros</p>
