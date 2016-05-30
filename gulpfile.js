@@ -1,5 +1,4 @@
 var elixir = require('laravel-elixir');
-require('laravel-elixir-livereload');
 
 /*
  |--------------------------------------------------------------------------
@@ -15,6 +14,5 @@ require('laravel-elixir-livereload');
 elixir(function(mix) {
     mix.sass('app.scss')
         .scripts('app.js')
-        .livereload()
         .version(['css/app.css', 'js/app.js']);
 });
